@@ -1,0 +1,5 @@
+{
+    "bucketName": "my-bucket-name",
+    "stackName": "eks-blueprints-test-stack1",
+    "kubeVersion": "1.31"
+}
