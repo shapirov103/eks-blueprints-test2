@@ -5,8 +5,8 @@
     "eks-blueprints-test-stack1": "bin/eks-blueprints-test-stack1.js"
   },
   "scripts": {
-    "basicStack": "cdk --app \"npx ts-node bin/eks-blueprints-test-stack1.ts\"",
-    "fullStack": "cdk --app \"npx ts-node bin/eks-blueprints-test-stack2.ts\"",
+    "infra": "cdk --app \"npx ts-node bin/infra.ts\"",
+    "full": "cdk --app \"npx ts-node bin/full.ts\"",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
