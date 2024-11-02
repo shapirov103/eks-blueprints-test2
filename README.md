@@ -1,14 +1,35 @@
-# Welcome to your CDK TypeScript project
+# Pattern to split infra and full stacks reusing infra
 
-This is a blank project for CDK development with TypeScript.
+`bin/infra.ts` - contains build logic to produce just the infra stack
+`bin/full.ts` - reuses the infra logic to build infrastucture, adds a few addons
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+# How to run
 
-## Useful commands
+```sh
+npm run infra list # lists the stack for infra
+npm run infra deploy # deploys infra
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+npm run full list # lists the full stack
+npm run full deploy 
+```
+
+# Deploying
+
+If used in a script
+
+```sh
+alias app="npm run"
+app infra deploy
+app full deploy
+```
+
+In a pipeline sudo code:
+
+<Stage Infra>
+    - deploy infra
+<Stage Full>
+    - deploy full
+
+## Notes
+After you deploy `full` you cannot run deploy `infra` anymore, otherwise it will purge the addons (if you do want to purge addons, however, it is a valid use case).
+
