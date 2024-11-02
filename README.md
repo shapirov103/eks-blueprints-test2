@@ -25,11 +25,12 @@ app full deploy
 
 In a pipeline sudo code:
 
+```
 <Stage Infra>
     - deploy infra
 <Stage Full>
     - deploy full
-
+```
 ## Notes
 After you deploy `full` you cannot run deploy `infra` anymore, otherwise it will purge the addons (if you do want to purge addons, however, it is a valid use case).
 
